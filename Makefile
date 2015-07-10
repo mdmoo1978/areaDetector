@@ -2,121 +2,63 @@
 TOP = .
 include $(TOP)/configure/CONFIG
 
-DIRS := $(DIRS) $(ADBINARIES)
+DIRS := $(DIRS) ADBinaries
 
-DIRS := $(DIRS) $(ADCORE)
-ADCore_DEPEND_DIRS += $(ADBINARIES)
+DIRS := $(DIRS) ADCore
+ADCore_DEPEND_DIRS += ADBinaries
 
-ifdef ADADSC
-DIRS := $(DIRS) $(ADADSC)
-ADADSC_DEPEND_DIRS += $(ADCORE)
-endif
-ifdef ADANDOR
-DIRS := $(DIRS) $(ADANDOR)
-ADAndor_DEPEND_DIRS += $(ADCORE)
-endif
+DIRS := $(DIRS) ADADSC
+ADADSC_DEPEND_DIRS += ADCore
 
-ifdef ADANOR3
-DIRS := $(DIRS) $(ADANOR3)
+DIRS := $(DIRS) ADAndor
+ADAndor_DEPEND_DIRS += ADCore
+
+DIRS := $(DIRS) ADAndor3
 ADAndor3_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADBRUKER
-DIRS := $(DIRS) $(ADBRUKER)
+DIRS := $(DIRS) ADBruker
 ADBruker_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADFIREWINWIN
-DIRS := $(DIRS) $(ADFIREWINWIN)
+DIRS := $(DIRS) ADFireWireWin
 ADFireWireWin_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADLIGHTFIELD
-DIRS := $(DIRS) $(ADLIGHTFIELD)
+DIRS := $(DIRS) ADLightField
 ADLightField_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPSL
-DIRS := $(DIRS) $(ADPSL)
+DIRS := $(DIRS) ADPSL
 ADPSL_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPERKINELMER
-DIRS := $(DIRS) $(ADPERKINELMER)
+DIRS := $(DIRS) ADPerkinElmer
 ADPerkinElmer_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPILATUS
-DIRS := $(DIRS) $(ADPILATUS)
+DIRS := $(DIRS) ADPilatus
 ADPilatus_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPIXIRAD
-DIRS := $(DIRS) $(ADPIXIRAD)
+DIRS := $(DIRS) ADPixirad
 ADPixirad_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPOINTGREY
 # ADPointGrey cannot be built on systems without libc 2.14
-DIRS := $(DIRS) $(ADPOINTGREY)
-ADPointGrey_DEPEND_DIRS += ADCore
-endif
+#DIRS := $(DIRS) ADPointGrey
+#ADPointGrey_DEPEND_DIRS += ADCore
 
-ifdef ADPROSILICA
-DIRS := $(DIRS) $(ADPROSILICA)
+DIRS := $(DIRS) ADProsilica
 ADProsilica_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADPVCAM
-DIRS := $(DIRS) $(ADPVCAM)
+DIRS := $(DIRS) ADPvCam
 ADPvCam_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADROPER
 # ADRoper cannot be built on systems without WinView installed, so it is disabled by default
-DIRS := $(DIRS) $(ADROPER)
-ADRoper_DEPEND_DIRS += ADCore
-endif
+#DIRS := $(DIRS) ADRoper
+#ADRoper_DEPEND_DIRS += ADCore
 
-ifdef ADQIMAGING
-DIRS := $(DIRS) $(ADQIMAGING)
-ADQImaging_DEPEND_DIRS += ADCore
-endif
-
-ifdef ADURL
-DIRS := $(DIRS) $(ADURL)
+DIRS := $(DIRS) ADURL
 ADURL_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADMAR345
-DIRS := $(DIRS) $(ADMAR345)
+DIRS := $(DIRS) ADmar345
 ADmar345_DEPEND_DIRS += ADCore
-endif
 
-ifdef ADMARCCD
-DIRS := $(DIRS) $(ADMARCCD)
+DIRS := $(DIRS) ADmarCCD
 ADmarCCD_DEPEND_DIRS += ADCore
-endif
-
-ifdef ADQIMAGING
-DIRS := $(DIRS) $(ADQIMAGING)
-ADQImaging_DEPEND_DIRS += ADCore
-endif
-
-ifdef AVISGIGE
-DIRS := $(DIRS) $(AVISGIGE)
-aravisGigE_DEPEND_DIRS += ADCore
-endif
-
-ifdef FFMPEGSERVER
-DIRS := $(DIRS) $(FFMPEGSERVER)
-ffmpagServer_DEPEND_DIRS += ADCore
-endif
-
-ifdef FIREWIREDCAM
-DIRS := $(DIRS) $(FIREWIREDCAM)
-firewireDCAM_DEPEND_DIRS += ADCore
-endif
 
 include $(TOP)/configure/RULES_TOP
 
@@ -137,3 +79,4 @@ $(1)$(DIVIDER)realuninstall:
 endef
 $(foreach dir, $(DIRS), $(eval $(call REALUNINSTALL_template,$(dir))))
 .PHONY: realuninstall $(realuninstallTargets)
+
