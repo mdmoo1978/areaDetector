@@ -85,4 +85,7 @@
 [submodule "firewireDCAM"]
 	path = firewireDCAM
 	url = https://github.com/areaDetector/firewireDCAM.git
+[submodule "ADMythen"]
+	path = ADMythen
+	url = https://github.com/mdmoo1978/ADMythen.git
 
