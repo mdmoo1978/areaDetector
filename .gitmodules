@@ -25,12 +25,18 @@
 [submodule "ADFireWireWin"]
 	path = ADFireWireWin
 	url = https://github.com/areaDetector/ADFireWireWin.git
+[submodule "ADExample"]
+	path = ADExample
+	url = https://github.com/areaDetector/ADExample.git
 [submodule "ADLightField"]
 	path = ADLightField
 	url = https://github.com/areaDetector/ADLightField.git
 [submodule "ADMerlin"]
 	path = ADMerlin
 	url = https://github.com/areaDetector/ADMerlin.git
+[submodule "ADMythen"]
+	path = ADMythen
+	url = https://github.com/areaDetector/ADMythen.git
 [submodule "ADPICam"]
 	path = ADPICam
 	url = https://github.com/areaDetector/ADPICam.git
@@ -46,6 +52,9 @@
 [submodule "ADPixirad"]
 	path = ADPixirad
 	url = https://github.com/areaDetector/ADPixirad.git
+[submodule "ADPluginEdge"]
+	path = ADPluginEdge
+	url = https://github.com/areaDetector/ADPluginEdge.git
 [submodule "ADPointGrey"]
 	path = ADPointGrey
 	url = https://github.com/areaDetector/ADPointGrey.git
